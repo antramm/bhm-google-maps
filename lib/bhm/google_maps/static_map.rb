@@ -22,7 +22,7 @@ module BHM
 
       def to_url
         params = @params.to_param
-        params << "&"
+        params << "&amp;"
         params << build_marker_params
         (URL_TEMPLATE % params).html_safe
       end
@@ -49,7 +49,7 @@ module BHM
           label = LABELS[index % LABELS.size]
           params << "markers=color:#{color}|label:#{label}|#{to_ll(address)}"
         end
-        params.join("&")
+        params.join("&amp;")
       end
 
       def to_ll(address)
